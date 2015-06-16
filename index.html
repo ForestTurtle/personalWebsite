@@ -2,11 +2,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Title of the document</title>
+<title>Jefferson Wang Home</title>
 </head>
 
 <body>
-Content of the document......
+
+<p id="demo"></p>
+
+<script>
+	document.writeln("<p>This is the w3 schools part</p>");
+	document.getElementById("demo").innerHTML = "Hello JavaScript!";
+	document.writeln("<p>TEXT_NODE, ELEMENT_NODE, and COMMENT_NODE all exist</p>");
+	document.writeln("<p>you can also nagivate with childNodes, parent, (first, last)child, and (next, previous)sibling</p>");
+	document.writeln("<p>you can get elements by tag name or id</p>");
+	document.getElementsByTagName("p")[1].innerHTML = "not test2";
+</script>
+<p> test1</p>
+<p> test2</p>
+<p> test3</p>
+<noscript>Please enable JavaScript to view the website properly!</noscript>
 </body>
 
+<!--github account https://github.com/ForestTurtle-->
 </html> 
