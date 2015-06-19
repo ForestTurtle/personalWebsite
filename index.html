@@ -3,25 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <title>Jefferson Wang Home</title>
-</head>
+<h2> Jefferson Wang Header </h2>
+<style>
+ul {
+	display:inline;
+}
+li{
+	display:inline-block;		
+}
+li ul {
+	top: 40px;
+	position: absolute;
+}
+li ul li{
+	position:relative;
+	right:40px;
+	display:block;
+}
+.menu {
+	display:block;
+    text-align: center;
+    font-weight: bold;
+	color: #FFFFFF;
+	width: 150px;
+	font-size: 16px;
+	padding: 10px;
+	background-color: #000000;
+}
+.dropmenu {
+	display:block;
+	width: 150px;
+    text-align: left;
+    font-weight: bold;
+	color: #FFFFFF;
+	font-size: 16px;	
+	padding:10px;
+	background-color: #000000;
+}
+</style>
 
+</head>
 <body>
 
-<p id="demo"></p>
 
+<script src="jquery-2.1.4.js"></script>
 <script>
-	document.writeln("<p>This is the w3 schools part</p>");
-	document.getElementById("demo").innerHTML = "Hello JavaScript!";
-	document.writeln("<p>TEXT_NODE, ELEMENT_NODE, and COMMENT_NODE all exist</p>");
-	document.writeln("<p>you can also nagivate with childNodes, parent, (first, last)child, and (next, previous)sibling</p>");
-	document.writeln("<p>you can get elements by tag name or id</p>");
-	document.getElementsByTagName("p")[1].innerHTML = "not test2";
+$(document).ready(function(){	
+	$(".dropdown").children("ul").hide();
+	$(".dropdown").mouseenter(function(){
+		$(this).children("ul").show();
+	});
+	$(".dropdown").mouseleave(function(){
+		$(this).children("ul").hide();
+	});
+	
+});
 </script>
-<p> test1</p>
-<p> test2</p>
-<p> test3</p>
+
+ <ul>
+	<li><a class = "menu" href="index.html">Home</a></li>
+	<li class = "dropdown"><a class = "menu" href="#Hello">Messing with Jquery</a>
+	<ul>		
+		<li><a class = "dropmenu" href="updates.html">Animation</a></li>
+		<li><a class = "dropmenu" href="updates.html">Inputs</a></li>
+	</ul>
+	</li>
+	<!--<li><a class = "menu" href="index.html">Project1</a></li>
+	<li><a class = "menu" href="index.html">Project2</a></li>-->
+	<li class = "dropdown"><a class = "menu" href="about.asp">About</a>
+		<ul>		
+		<li><a class = "dropmenu" href="updates.html">About This Website</a></li>
+		<li><a class = "dropmenu" href="updates.html">Personal Information</a></li>
+	</ul>
+	</li>
+	<li><a class = "menu" href="https://github.com/ForestTurtle">Github</a></li>
+</ul> 
 <noscript>Please enable JavaScript to view the website properly!</noscript>
 </body>
-
+<!--$(document).ready( function(){} );-->
 <!--github account https://github.com/ForestTurtle-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
 </html> 
