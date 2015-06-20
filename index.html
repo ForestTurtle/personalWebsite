@@ -5,18 +5,40 @@
 <title>Jefferson Wang Home</title>
 <h2> Jefferson Wang Header </h2>
 <style>
+#body {
+
+  background: -webkit-linear-gradient(left top, red , blue); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, red, blue); /* For Opera 11.1 to 12.0 */
+  background: linear-gradient(to bottom right, #359C67 , #2A69A8); /* Standard syntax */
+} 
 ul {
 	display:inline;
+	margin: 0;
+	text-align: left;
+	padding-left: 0;
+}
+h2 {
+	display:inline;
+    text-align: center;
+    font-weight: bold;
+	color: #FFFFFF;
+	font-size: 1.2vw;
+	padding: 1vw;
+	padding-bottom: 1.05vw;
+	background-color: #000000;
 }
 li{
 	display:inline-block;		
+	margin-right: -4px;
+	position: relative;	
 }
 li ul {
-	top: 40px;
+	display: relative;
+	top: 3vw;
 	position: absolute;
+	left: 40px;
 }
 li ul li{
-	position:relative;
 	right:40px;
 	display:block;
 }
@@ -25,20 +47,24 @@ li ul li{
     text-align: center;
     font-weight: bold;
 	color: #FFFFFF;
-	width: 150px;
-	font-size: 16px;
-	padding: 10px;
+	width: 14vw;
+	font-size: 1.2vw;
+	padding: 1vw;;
 	background-color: #000000;
 }
 .dropmenu {
 	display:block;
-	width: 150px;
-    text-align: left;
+	width: 15vw;
+    text-align: center;
     font-weight: bold;
 	color: #FFFFFF;
-	font-size: 16px;	
+	font-size: 1vw;	
 	padding:10px;
 	background-color: #000000;
+}
+#body {
+	width: 100%;
+	height: 400px;
 }
 </style>
 
@@ -48,10 +74,10 @@ li ul li{
 
 <script src="jquery-2.1.4.js"></script>
 <script>
-$(document).ready(function(){	
+$(document).ready(function(){
 	$(".dropdown").children("ul").hide();
 	$(".dropdown").mouseenter(function(){
-		$(this).children("ul").show();
+		$(this).children("ul").fadeIn(200);
 	});
 	$(".dropdown").mouseleave(function(){
 		$(this).children("ul").hide();
@@ -68,18 +94,65 @@ $(document).ready(function(){
 		<li><a class = "dropmenu" href="updates.html">Inputs</a></li>
 	</ul>
 	</li>
+	<li><a class = "menu" href="index.html">Projects</a></li>
 	<!--<li><a class = "menu" href="index.html">Project1</a></li>
 	<li><a class = "menu" href="index.html">Project2</a></li>-->
 	<li class = "dropdown"><a class = "menu" href="about.asp">About</a>
-		<ul>		
+		<ul>	
 		<li><a class = "dropmenu" href="updates.html">About This Website</a></li>
 		<li><a class = "dropmenu" href="updates.html">Personal Information</a></li>
 	</ul>
 	</li>
 	<li><a class = "menu" href="https://github.com/ForestTurtle">Github</a></li>
 </ul> 
+</br>	
 <noscript>Please enable JavaScript to view the website properly!</noscript>
 </body>
+
+<section style = "overflow:hidden;" id = "body">
+<body style = "overflow:hidden;">
+<script>
+$(document).ready(function(){
+	var counter = 4;
+	var box1;
+	var box2;
+	var box3;
+	var inProgress = false;
+	$("button").click(function(){
+		if(!inProgress){
+		inProgress = true;
+		$(this).text("Place boxes " +counter+ " through "+(counter+2));
+		
+		box1 = "<p class = 'one first' style='background:#99af41;height:100px;width:100px;position:absolute;text-align:center;line-height: 100px;'>"+(counter-3)+"</p>";
+		box2 = "<p style='background:#99af41;height:100px;width:100px;position:absolute;text-align:center;line-height: 100px;'>"+(counter-2)+"</p>";
+		box3 = "<p style='background:#99af41;height:100px;width:100px;position:absolute;text-align:center;line-height: 100px;'>"+(counter-1)+"</p>";
+		
+		counter+=3;
+
+		$(this).after(box1);
+		$(this).after(box2);
+		$(this).after(box3);
+		
+		$(".one:not(.first)").animate({left: '+=200px'}, function() {
+		$(this).prev().prev().animate({left: '+=200px'}, function() {
+		$(this).next().animate({left: '+=200px'});
+		});
+		});
+		
+		$(".first").prev().animate({top: '+=100px'}, function() {
+		$(this).animate({left: '+=100px'});
+		$(this).prev().animate({top: '+=200px'});
+		$(this).next().removeClass("first");
+		inProgress = false;
+		});
+
+		}
+	});
+});
+</script>
+<button>Place the first three boxes</button>
+</body>
+</section>
 <!--$(document).ready( function(){} );-->
 <!--github account https://github.com/ForestTurtle-->
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
